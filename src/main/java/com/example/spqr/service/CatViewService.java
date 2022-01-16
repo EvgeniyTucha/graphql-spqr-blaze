@@ -1,7 +1,7 @@
 package com.example.spqr.service;
 
-import com.example.spqr.view.CatCreateView;
-import com.example.spqr.view.CatView;
+import com.example.spqr.view.create.CatCreateView;
+import com.example.spqr.view.get.CatView;
 import io.leangen.graphql.execution.ResolutionEnvironment;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.spqr.view;
+package com.example.spqr.view.get;
 
 import com.blazebit.domain.declarative.DomainType;
 import com.blazebit.persistence.view.EntityView;

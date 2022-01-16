@@ -1,4 +1,4 @@
-package com.example.spqr.view;
+package com.example.spqr.view.create;
 
 import com.blazebit.persistence.view.CreatableEntityView;
 import com.blazebit.persistence.view.EntityView;

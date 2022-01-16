@@ -1,12 +1,10 @@
-package com.example.spqr.view;
+package com.example.spqr.view.get;
 
 import com.blazebit.domain.declarative.DomainType;
 import com.blazebit.persistence.view.EntityView;
-import com.blazebit.persistence.view.FetchStrategy;
 import com.blazebit.persistence.view.IdMapping;
-import com.blazebit.persistence.view.MappingCorrelatedSimple;
+import com.blazebit.persistence.view.Mapping;
 import com.example.spqr.model.Cat;
-import com.example.spqr.model.Kitten;
 import io.leangen.graphql.annotations.GraphQLQuery;
 
 import java.util.List;
@@ -23,13 +21,14 @@ public interface CatView {
 
     String getDescription();
 
-    @MappingCorrelatedSimple(
-            correlationBasis = "id",
-            correlationResult = "this",
-            correlated = Kitten.class,
-            correlationExpression = "cat.id = EMBEDDING_VIEW(id)",
-            fetch = FetchStrategy.JOIN
-    )
+//    @MappingCorrelatedSimple(
+//            correlationBasis = "id",
+//            correlationResult = "this",
+//            correlated = Kitten.class,
+//            correlationExpression = "cat.id = EMBEDDING_VIEW(id)",
+//            fetch = FetchStrategy.JOIN
+//    )
+    @Mapping("Kitten[cat.id = VIEW(id)]")
 //    @GraphQLIgnore
 //    @Mapping("Cat[id = EMBEDDING_VIEW(cat.id)]")
     List<KittenView> getKittens();

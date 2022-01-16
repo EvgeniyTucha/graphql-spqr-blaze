@@ -6,8 +6,8 @@ import com.example.spqr.repository.ViewRepository;
 import com.example.spqr.service.CatViewService;
 import com.example.spqr.utils.PaginationSortData;
 import com.example.spqr.utils.PaginationSortUtility;
-import com.example.spqr.view.CatView;
-import com.example.spqr.view.CatCreateView;
+import com.example.spqr.view.get.CatView;
+import com.example.spqr.view.create.CatCreateView;
 import io.leangen.graphql.execution.ResolutionEnvironment;
 import org.springframework.stereotype.Service;
 
