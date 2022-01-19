@@ -21,7 +21,7 @@ public interface CatView {
 
     String getDescription();
 
-//    @MappingCorrelatedSimple(
+    //    @MappingCorrelatedSimple(
 //            correlationBasis = "id",
 //            correlationResult = "this",
 //            correlated = Kitten.class,
@@ -33,4 +33,6 @@ public interface CatView {
 //    @Mapping("Cat[id = EMBEDDING_VIEW(cat.id)]")
     List<KittenView> getKittens();
 
+    //    @Mapping("Alias[cat.id = VIEW(id)]")
+    List<AliasView> getAliases();
 }

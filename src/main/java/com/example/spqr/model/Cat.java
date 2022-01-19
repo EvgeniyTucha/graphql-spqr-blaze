@@ -6,11 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Builder
 @AllArgsConstructor
@@ -29,6 +31,9 @@ public class Cat implements Serializable {
     private String name;
     @Column(name = "cat_description")
     private String description;
+
+    @OneToMany(mappedBy = "cat")
+    private List<Alias> aliases;
 
     public Long getId() {
         return id;
@@ -52,5 +57,13 @@ public class Cat implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Alias> getAliases() {
+        return aliases;
+    }
+
+    public void setAliases(List<Alias> aliases) {
+        this.aliases = aliases;
     }
 }
