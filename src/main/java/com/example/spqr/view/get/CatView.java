@@ -1,6 +1,7 @@
 package com.example.spqr.view.get;
 
 import com.blazebit.domain.declarative.DomainType;
+import com.blazebit.persistence.view.CollectionMapping;
 import com.blazebit.persistence.view.EntityView;
 import com.blazebit.persistence.view.IdMapping;
 import com.blazebit.persistence.view.Mapping;
@@ -21,18 +22,16 @@ public interface CatView {
 
     String getDescription();
 
-    //    @MappingCorrelatedSimple(
-//            correlationBasis = "id",
-//            correlationResult = "this",
-//            correlated = Kitten.class,
-//            correlationExpression = "cat.id = EMBEDDING_VIEW(id)",
-//            fetch = FetchStrategy.JOIN
-//    )
+    /*
+    * With collections that using @Mapping there are 2 cases to do not get duplicates during expression filtering:
+    * 1. Use Set instead of List
+    * 2. Use @CollectionMapping(forceUnique = true) with List
+    * */
+    @CollectionMapping(forceUnique = true)
     @Mapping("Kitten[cat.id = VIEW(id)]")
-//    @GraphQLIgnore
-//    @Mapping("Cat[id = EMBEDDING_VIEW(cat.id)]")
     List<KittenView> getKittens();
 
+    @CollectionMapping(forceUnique = true)
     @Mapping("Alias[cat.id = VIEW(id)]")
     List<AliasView> getAliases();
 }
