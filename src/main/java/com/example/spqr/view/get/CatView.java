@@ -33,6 +33,6 @@ public interface CatView {
 //    @Mapping("Cat[id = EMBEDDING_VIEW(cat.id)]")
     List<KittenView> getKittens();
 
-    //    @Mapping("Alias[cat.id = VIEW(id)]")
+    @Mapping("Alias[cat.id = VIEW(id)]")
     List<AliasView> getAliases();
 }
