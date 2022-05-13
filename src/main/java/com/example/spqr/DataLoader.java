@@ -29,9 +29,9 @@ public class DataLoader implements ApplicationRunner {
         final Cat cat2 = Cat.builder().name("Bern").description("Good cat").build();
         catRepository.save(cat1);
         catRepository.save(cat2);
-        Alias aliasCat1 = Alias.builder().alias("Alexandre").cat(cat1).build();
-        Alias aliasCat12 = Alias.builder().alias("Alexandros").cat(cat1).build();
-        Alias aliasCat2 = Alias.builder().alias("Bernie").cat(cat2).build();
+        Alias aliasCat1 = Alias.builder().alias2("Alexandre").cat(cat1).build();
+        Alias aliasCat12 = Alias.builder().alias2("Alexandros").cat(cat1).build();
+        Alias aliasCat2 = Alias.builder().alias2("Bernie").cat(cat2).build();
         aliasRepository.save(aliasCat1);
         aliasRepository.save(aliasCat12);
         aliasRepository.save(aliasCat2);

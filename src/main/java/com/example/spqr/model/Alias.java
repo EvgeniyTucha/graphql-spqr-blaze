@@ -31,7 +31,7 @@ public class Alias implements Serializable {
     private Long id;
 
     @Column(name = "cat_alias")
-    private String alias;
+    private String alias2;
 
     @ManyToOne
     @JoinColumn(name = "cat_id")
