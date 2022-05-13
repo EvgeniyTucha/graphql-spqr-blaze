@@ -1,18 +1,19 @@
 package com.example.spqr.view.create;
 
-import com.blazebit.persistence.view.CreatableEntityView;
 import com.blazebit.persistence.view.EntityView;
 import com.blazebit.persistence.view.IdMapping;
+import com.blazebit.persistence.view.UpdatableEntityView;
 import com.example.spqr.model.Cat;
+import com.example.spqr.view.get.CatView;
 import io.leangen.graphql.annotations.GraphQLInputField;
 import io.leangen.graphql.annotations.GraphQLQuery;
 
-@CreatableEntityView
+@UpdatableEntityView
 @EntityView(Cat.class)
-public interface CatCreateView {
+public interface CatUpdateView extends CatView {
 
     @IdMapping
-//    @GraphQLQuery(name = "id", description = "A cat's id")
+    @GraphQLQuery(name = "id", description = "A cat's id")
     Long getId();
 
     void setId(Long id);

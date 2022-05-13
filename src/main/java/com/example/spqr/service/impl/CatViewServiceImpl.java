@@ -6,6 +6,7 @@ import com.example.spqr.repository.ViewRepository;
 import com.example.spqr.service.CatViewService;
 import com.example.spqr.utils.PaginationSortData;
 import com.example.spqr.utils.PaginationSortUtility;
+import com.example.spqr.view.create.CatUpdateView;
 import com.example.spqr.view.get.CatView;
 import com.example.spqr.view.create.CatCreateView;
 import io.leangen.graphql.execution.ResolutionEnvironment;
@@ -29,11 +30,15 @@ public class CatViewServiceImpl implements CatViewService {
     public List<CatView> findAll(ResolutionEnvironment env) {
         PaginationSortData paginationSortData = PaginationSortUtility.generatePaginationData(env);
         final EntityViewSetting<CatView, PaginatedCriteriaBuilder<CatView>> setting =
-            repository.createPaginationSetting(CatView.class, env, paginationSortData);
+                repository.createPaginationSetting(CatView.class, env, paginationSortData);
         return repository.findAll(setting, paginationSortData);
     }
 
     public CatView create(CatCreateView cat) {
+        return repository.persist(cat, CatView.class);
+    }
+
+    public CatView update(CatUpdateView cat) {
         return repository.persist(cat, CatView.class);
     }
 }

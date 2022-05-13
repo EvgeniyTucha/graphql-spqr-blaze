@@ -6,31 +6,23 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.io.Serializable;
 
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Getter
 @Setter
-@Data
-public class Kitten implements Serializable {
+public class Kitten extends Cat {
 
     private static final long serialVersionUID = -8774051439534087727L;
 
-    @Id
-    @Column(name = "ID", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "kitten_name")
     private String name;
     @Column(name = "kitten_description")

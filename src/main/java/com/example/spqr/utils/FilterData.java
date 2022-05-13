@@ -12,7 +12,6 @@ import java.io.Serializable;
 
 @Builder
 @Getter
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class FilterData implements Serializable {

@@ -1,11 +1,10 @@
 package com.example.spqr.graphql;
 
-import com.example.spqr.service.CatViewService;
+import com.example.spqr.service.AliasViewService;
 import com.example.spqr.utils.FilterData;
 import com.example.spqr.utils.SortOptionInputField;
-import com.example.spqr.view.create.CatCreateView;
-import com.example.spqr.view.create.CatUpdateView;
-import com.example.spqr.view.get.CatView;
+import com.example.spqr.view.create.AliasCreateView;
+import com.example.spqr.view.get.AliasView;
 import io.leangen.graphql.annotations.GraphQLArgument;
 import io.leangen.graphql.annotations.GraphQLEnvironment;
 import io.leangen.graphql.annotations.GraphQLMutation;
@@ -18,37 +17,32 @@ import java.util.List;
 
 @GraphQLApi
 @Service
-public class CatViewGraphQLApi {
+public class AliasViewGraphQLApi {
 
-    private final CatViewService catViewService;
+    private final AliasViewService aliasViewService;
 
-    public CatViewGraphQLApi(CatViewService catViewService) {
-        this.catViewService = catViewService;
+    public AliasViewGraphQLApi(AliasViewService aliasViewService) {
+        this.aliasViewService = aliasViewService;
     }
 
     @GraphQLQuery
-    public CatView getCatById(@GraphQLArgument(name = "id") Long id,
+    public AliasView getAliasById(@GraphQLArgument(name = "id") Long id,
             @GraphQLEnvironment ResolutionEnvironment env) {
-        return catViewService.findById(id, env);
+        return aliasViewService.findById(id, env);
     }
 
     @GraphQLQuery
-    public List<CatView> getAllCats(@GraphQLEnvironment ResolutionEnvironment env,
+    public List<AliasView> getAliases(@GraphQLEnvironment ResolutionEnvironment env,
             @GraphQLArgument(name = "firstResult") Integer firstResult,
             @GraphQLArgument(name = "maxResults") Integer maxResults,
             @GraphQLArgument(name = "expression") String expression,
             @GraphQLArgument(name = "sortOptions") List<SortOptionInputField> sortOptions,
             @GraphQLArgument(name = "filters") List<FilterData> filters) {
-        return catViewService.findAll(env);
+        return aliasViewService.findAll(env);
     }
 
     @GraphQLMutation
-    public CatView createCat(@GraphQLArgument(name = "data") CatCreateView cat) {
-        return catViewService.create(cat);
-    }
-
-    @GraphQLMutation
-    public CatView updateCat(@GraphQLArgument(name = "data") CatUpdateView cat) {
-        return catViewService.update(cat);
+    public AliasView createAlias(@GraphQLArgument(name = "data") AliasCreateView alias) {
+        return aliasViewService.create(alias);
     }
 }
