@@ -4,7 +4,6 @@ http://localhost:8082/graphiql
 or
 http://localhost:8082/gui -> URL: http://localhost:8082/graphql
 
-
 ```graphql
 query all_cats {
     allCats(
@@ -26,6 +25,26 @@ query all_cats {
             id
             alias
         }
+    }
+}
+```
+
+```graphql
+mutation update_cat {
+    updateCat(data: { id:"1" name: "Lux", description: "De" }) {
+        id
+        name
+        description
+    }
+}
+```
+
+```graphql
+mutation create_cat {
+    createCat(data: { id:"1" name: "Lux", description: "De" }) {
+        id
+        name
+        description
     }
 }
 ```
