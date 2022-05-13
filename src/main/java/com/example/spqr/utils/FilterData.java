@@ -16,9 +16,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class FilterData implements Serializable {
     @GraphQLInputField
-    private String attributeName;
+    public String attributeName;
     @GraphQLInputField
-    private String filterName = StringUtils.EMPTY;
+    public String filterName = StringUtils.EMPTY;
     @GraphQLInputField
-    private String filterValue;
+    public String filterValue;
 }
